@@ -1,0 +1,7 @@
+rdd_text = sc.parallelize(['red', 'red', 'blue', 'green', 'green','yellow'])
+rdd_aux = rdd_text.map(lambda x: (x,1))
+rdd_result = rdd_aux.reduceByKey(lambda x,y: x+y)
+print (rdd_result.collect())
+
+
+[('blue', 1), ('green', 2), ('yellow', 1), ('red', 2)]
